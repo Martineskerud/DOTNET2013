@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="martinbeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="martinbeModelStoreContainer">
+          <EntitySet Name="Actor" EntityType="martinbeModel.Store.Actor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ActorMovie" EntityType="martinbeModel.Store.ActorMovie" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Movie" EntityType="martinbeModel.Store.Movie" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ActorMovie_Actor" Association="martinbeModel.Store.FK_ActorMovie_Actor">
+            <End Role="Actor" EntitySet="Actor" />
+            <End Role="ActorMovie" EntitySet="ActorMovie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorMovie_Movie" Association="martinbeModel.Store.FK_ActorMovie_Movie">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="ActorMovie" EntitySet="ActorMovie" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Actor">
+          <Key>
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="ActorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Middlename" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Image" Type="varchar" MaxLength="100" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="About" Type="varchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="ActorMovie">
+          <Key>
+            <PropertyRef Name="MovieId" />
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="ActorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Year" Type="int" />
+          <Property Name="MovieDescription" Type="nvarchar(max)" />
+          <Property Name="Category1Id" Type="int" />
+          <Property Name="Category2Id" Type="int" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="PosterImage" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ActorMovie_Actor">
+          <End Role="Actor" Type="martinbeModel.Store.Actor" Multiplicity="1" />
+          <End Role="ActorMovie" Type="martinbeModel.Store.ActorMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actor">
+              <PropertyRef Name="ActorId" />
+            </Principal>
+            <Dependent Role="ActorMovie">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorMovie_Movie">
+          <End Role="Movie" Type="martinbeModel.Store.Movie" Multiplicity="1" />
+          <End Role="ActorMovie" Type="martinbeModel.Store.ActorMovie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="ActorMovie">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="martinbeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="martinbeEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Actor" EntityType="martinbeModel.Actor" />
+          <EntitySet Name="Movie" EntityType="martinbeModel.Movie" />
+          <AssociationSet Name="ActorMovie" Association="martinbeModel.ActorMovie">
+            <End Role="Actor" EntitySet="Actor" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Actor">
+          <Key>
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="ActorId" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Middlename" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Image" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="About" Type="String" MaxLength="3000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Movie" Relationship="martinbeModel.ActorMovie" FromRole="Actor" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="MovieDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Category1Id" Type="Int32" />
+          <Property Name="Category2Id" Type="Int32" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PosterImage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Actor" Relationship="martinbeModel.ActorMovie" FromRole="Movie" ToRole="Actor" />
+        </EntityType>
+        <Association Name="ActorMovie">
+          <End Role="Actor" Type="martinbeModel.Actor" Multiplicity="*" />
+          <End Role="Movie" Type="martinbeModel.Movie" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="martinbeModelStoreContainer" CdmEntityContainer="martinbeEntities">
+          <EntitySetMapping Name="Actor">
+            <EntityTypeMapping TypeName="martinbeModel.Actor">
+              <MappingFragment StoreEntitySet="Actor">
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="About" ColumnName="About" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movie">
+            <EntityTypeMapping TypeName="martinbeModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="MovieDescription" ColumnName="MovieDescription" />
+                <ScalarProperty Name="Category1Id" ColumnName="Category1Id" />
+                <ScalarProperty Name="Category2Id" ColumnName="Category2Id" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PosterImage" ColumnName="PosterImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ActorMovie" TypeName="martinbeModel.ActorMovie" StoreEntitySet="ActorMovie">
+            <EndProperty Name="Actor">
+              <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+            </EndProperty>
+            <EndProperty Name="Movie">
+              <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4494239C-998B-4364-AE5B-08CBAC91768F}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ActorMovieGrid</RootNamespace>
+    <AssemblyName>ActorMovieGrid</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>ActorMovieGrid_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ExtendedDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActorMovieSearchContract.xaml.cs">
+      <DependentUpon>ActorMovieSearchContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddActor.xaml.cs">
+      <DependentUpon>AddActor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalPage.xaml.cs">
+      <DependentUpon>GlobalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="GroupedItemsPage.xaml.cs">
+      <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupDetailPage.xaml.cs">
+      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InvalidActorArgumentException.cs" />
+    <Compile Include="ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LiveTile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataModel\SampleDataSource.cs" />
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Service References\ActorMovieServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceConstants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Common\ReadMe.txt" />
+    <None Include="ActorMovieGrid_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Service References\ActorMovieServiceReference\service.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\ActorImages\AaronEckhart.jpg" />
+    <Content Include="Assets\ActorImages\AdrienBrody.jpg" />
+    <Content Include="Assets\ActorImages\AlPacino.jpg" />
+    <Content Include="Assets\ActorImages\AnneHathaway.jpg" />
+    <Content Include="Assets\ActorImages\AnneHethaway.jpg" />
+    <Content Include="Assets\ActorImages\AnnetteBening.jpg" />
+    <Content Include="Assets\ActorImages\AnthonyHopkins.jpg" />
+    <Content Include="Assets\ActorImages\Arnold.jpg" />
+    <Content Include="Assets\ActorImages\BenKingsley.jpg" />
+    <Content Include="Assets\ActorImages\BeverlyDAngelo.jpg" />
+    <Content Include="Assets\ActorImages\BeyonceKnowles.jpg" />
+    <Content Include="Assets\ActorImages\BobGunton.jpg" />
+    <Content Include="Assets\ActorImages\BradPitt.jpg" />
+    <Content Include="Assets\ActorImages\CarrieFisher.jpg" />
+    <Content Include="Assets\ActorImages\CarrieHenn.jpg" />
+    <Content Include="Assets\ActorImages\CarrieMoss.jpg" />
+    <Content Include="Assets\ActorImages\ChristianBale.jpg" />
+    <Content Include="Assets\ActorImages\ChristinaApplegate.jpg" />
+    <Content Include="Assets\ActorImages\ChristopherLloyd.jpg" />
+    <Content Include="Assets\ActorImages\ChristophWaltz.jpg" />
+    <Content Include="Assets\ActorImages\ClintEastwood.jpg" />
+    <Content Include="Assets\ActorImages\ConnieNielsen.jpg" />
+    <Content Include="Assets\ActorImages\DanielCraig.jpg" />
+    <Content Include="Assets\ActorImages\DaveighChase.jpg" />
+    <Content Include="Assets\ActorImages\DavidMorse.jpg" />
+    <Content Include="Assets\ActorImages\DustinHoffman.jpg" />
+    <Content Include="Assets\ActorImages\EdwardFurlong.jpg" />
+    <Content Include="Assets\ActorImages\EdwardNorton.jpg" />
+    <Content Include="Assets\ActorImages\ElijahWood.jpg" />
+    <Content Include="Assets\ActorImages\ElizabethHurley.jpg" />
+    <Content Include="Assets\ActorImages\EllenPage.jpg" />
+    <Content Include="Assets\ActorImages\female.jpg" />
+    <Content Include="Assets\ActorImages\FrankFinlay.jpg" />
+    <Content Include="Assets\ActorImages\GarySinise.jpg" />
+    <Content Include="Assets\ActorImages\GeorgeClooney.jpg" />
+    <Content Include="Assets\ActorImages\GuyPearce.jpg" />
+    <Content Include="Assets\ActorImages\HalleBerry.jpg" />
+    <Content Include="Assets\ActorImages\HarrisonFord.jpg" />
+    <Content Include="Assets\ActorImages\HeatherGraham.jpg" />
+    <Content Include="Assets\ActorImages\HeathLedger.jpg" />
+    <Content Include="Assets\ActorImages\HelenaCarter.jpg" />
+    <Content Include="Assets\ActorImages\HughJackman.jpg" />
+    <Content Include="Assets\ActorImages\IanMcKellen.jpg" />
+    <Content Include="Assets\ActorImages\JackNicholson.jpg" />
+    <Content Include="Assets\ActorImages\JamesCaan.jpg" />
+    <Content Include="Assets\ActorImages\JamieFoxx.jpg" />
+    <Content Include="Assets\ActorImages\JavierBardem.jpg" />
+    <Content Include="Assets\ActorImages\JoaquinPhoenix.jpg" />
+    <Content Include="Assets\ActorImages\JodieFoster.jpg" />
+    <Content Include="Assets\ActorImages\JoePantoliano.jpg" />
+    <Content Include="Assets\ActorImages\JohnHurt.jpg" />
+    <Content Include="Assets\ActorImages\JohnTravolta.jpg" />
+    <Content Include="Assets\ActorImages\JonahHill.jpg" />
+    <Content Include="Assets\ActorImages\JosephLevitt.jpg" />
+    <Content Include="Assets\ActorImages\JuliaRoberts.jpg" />
+    <Content Include="Assets\ActorImages\KarenAllen.jpg" />
+    <Content Include="Assets\ActorImages\KeanuReeves.jpg" />
+    <Content Include="Assets\ActorImages\KevinSpacey.jpg" />
+    <Content Include="Assets\ActorImages\LaurenceFishbourne.jpg" />
+    <Content Include="Assets\ActorImages\LeaThompson.jpg" />
+    <Content Include="Assets\ActorImages\LeonardoDiCaprio.jpg" />
+    <Content Include="Assets\ActorImages\LiamNeeson.jpg" />
+    <Content Include="Assets\ActorImages\LindaHamilton.jpg" />
+    <Content Include="Assets\ActorImages\male.jpg" />
+    <Content Include="Assets\ActorImages\MarkHamill.jpg" />
+    <Content Include="Assets\ActorImages\MarlonBrando.jpg" />
+    <Content Include="Assets\ActorImages\MartinSheen.jpg" />
+    <Content Include="Assets\ActorImages\MattDamon.jpg" />
+    <Content Include="Assets\ActorImages\MichaelBiehn.jpg" />
+    <Content Include="Assets\ActorImages\MichaelDuncan.jpg" />
+    <Content Include="Assets\ActorImages\MichaelJFox.jpg" />
+    <Content Include="Assets\ActorImages\MichaelYork.jpg" />
+    <Content Include="Assets\ActorImages\MikeMyers.jpg" />
+    <Content Include="Assets\ActorImages\MorganFreeman.jpg" />
+    <Content Include="Assets\ActorImages\NaomieHarris.jpg" />
+    <Content Include="Assets\ActorImages\OrlandoBloom.jpg" />
+    <Content Include="Assets\ActorImages\PaulFreeman.jpg" />
+    <Content Include="Assets\ActorImages\PierceBrosnan.jpg" />
+    <Content Include="Assets\ActorImages\RalphFiennes.jpg" />
+    <Content Include="Assets\ActorImages\RobertDuvall.jpg" />
+    <Content Include="Assets\ActorImages\RobinWright.jpg" />
+    <Content Include="Assets\ActorImages\RussellCrowe.jpg" />
+    <Content Include="Assets\ActorImages\RutgerHauer.jpg" />
+    <Content Include="Assets\ActorImages\SamuelJackson.jpg" />
+    <Content Include="Assets\ActorImages\ScarlettJohansson.jpg" />
+    <Content Include="Assets\ActorImages\SeanYoung.jpg" />
+    <Content Include="Assets\ActorImages\SethGreen.jpg" />
+    <Content Include="Assets\ActorImages\ShelleyDuvall.jpg" />
+    <Content Include="Assets\ActorImages\SigourneyWeaver.jpg" />
+    <Content Include="Assets\ActorImages\SteveCarell.jpg" />
+    <Content Include="Assets\ActorImages\ThomasKretschmann.jpg" />
+    <Content Include="Assets\ActorImages\ThoraBirch.jpg" />
+    <Content Include="Assets\ActorImages\TimRobbins.jpg" />
+    <Content Include="Assets\ActorImages\TomHanks.jpg" />
+    <Content Include="Assets\ActorImages\TomHardy.jpg" />
+    <Content Include="Assets\ActorImages\TomSkerritt.jpg" />
+    <Content Include="Assets\ActorImages\UmaThurman.jpg" />
+    <Content Include="Assets\ActorImages\ViggoMortensen.jpg" />
+    <Content Include="Assets\ActorImages\WillFerrell.jpg" />
+    <Content Include="Assets\ActorImages\WillFerrell.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\LogoMovie.png" />
+    <Content Include="Assets\PosterImages\Alien.jpg" />
+    <Content Include="Assets\PosterImages\Aliens.jpg" />
+    <Content Include="Assets\PosterImages\AmericanBeauty.jpg" />
+    <Content Include="Assets\PosterImages\AmericanHistoryX.jpg" />
+    <Content Include="Assets\PosterImages\ApocalypseNow.jpg" />
+    <Content Include="Assets\PosterImages\AustinPowers1.jpg" />
+    <Content Include="Assets\PosterImages\AustinPowers2.jpg" />
+    <Content Include="Assets\PosterImages\AustinPowers3.jpg" />
+    <Content Include="Assets\PosterImages\BackToTheFuture.jpg" />
+    <Content Include="Assets\PosterImages\BladeRunner.jpg" />
+    <Content Include="Assets\PosterImages\Django.jpg" />
+    <Content Include="Assets\PosterImages\FightClub.jpg" />
+    <Content Include="Assets\PosterImages\ForrestGump.jpg" />
+    <Content Include="Assets\PosterImages\Gladiator.jpg" />
+    <Content Include="Assets\PosterImages\GreenMile.jpg" />
+    <Content Include="Assets\PosterImages\Inception.jpg" />
+    <Content Include="Assets\PosterImages\Lotr1.jpg" />
+    <Content Include="Assets\PosterImages\Lotr2.jpg" />
+    <Content Include="Assets\PosterImages\Lotr3.jpg" />
+    <Content Include="Assets\PosterImages\Matrix.jpg" />
+    <Content Include="Assets\PosterImages\Memento.jpg" />
+    <Content Include="Assets\PosterImages\PulpFiction.jpg" />
+    <Content Include="Assets\PosterImages\RaidersOfTheLostArk.jpg" />
+    <Content Include="Assets\PosterImages\Schindler.jpg" />
+    <Content Include="Assets\PosterImages\Seven.jpg" />
+    <Content Include="Assets\PosterImages\Shawshank.jpg" />
+    <Content Include="Assets\PosterImages\SilenceOfTheLambs.jpg" />
+    <Content Include="Assets\PosterImages\skyfall.jpg" />
+    <Content Include="Assets\PosterImages\SpiritedAway.jpg" />
+    <Content Include="Assets\PosterImages\StarWars4.jpg" />
+    <Content Include="Assets\PosterImages\StarWars5.jpg" />
+    <Content Include="Assets\PosterImages\Terminator2.jpg" />
+    <Content Include="Assets\PosterImages\TheDarkKnight.jpg" />
+    <Content Include="Assets\PosterImages\TheDarkKnightRises.jpg" />
+    <Content Include="Assets\PosterImages\TheGodfather.jpg" />
+    <Content Include="Assets\PosterImages\TheGoodTheBadAndTheUgly.jpg" />
+    <Content Include="Assets\PosterImages\ThePianist.jpg" />
+    <Content Include="Assets\PosterImages\ThePrestige.jpg" />
+    <Content Include="Assets\PosterImages\TheShining.jpg" />
+    <Content Include="Assets\ScaledAssets.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\LightGray.png" />
+    <Content Include="Assets\MediumGray.png" />
+    <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\WideLogo.png" />
+    <Content Include="Assets\WideLogoscale-100.png" />
+    <Content Include="Assets\WideLogoscale-80.png" />
+    <Content Include="Assets\WideLogo310x150.png" />
+    <None Include="Service References\ActorMovieServiceReference\Reference.datasvcmap">
+      <Generator>DataServicesCoreClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="ActorMovieSearchContract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddActor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GlobalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GroupedItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GroupDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HelpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm.WindowsStore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.WindowsStore.5.0.0\lib\.NETCore\Microsoft.Data.Edm.WindowsStore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData.WindowsStore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.WindowsStore.5.0.0\lib\.NETCore\Microsoft.Data.OData.WindowsStore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client.WindowsStore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.WindowsStore.5.0.0\lib\.NETCore\Microsoft.Data.Services.Client.WindowsStore.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial.WindowsStore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.WindowsStore.5.0.0\lib\.NETCore\System.Spatial.WindowsStore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceReferenceMetadataStorage Include="Service References\ActorMovieServiceReference\">
+      <Type>datasvcmap</Type>
+    </ServiceReferenceMetadataStorage>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

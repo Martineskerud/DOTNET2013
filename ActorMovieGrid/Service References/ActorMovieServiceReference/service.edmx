@@ -1,0 +1,48 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="martinbeModel" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="Actor">
+        <Key>
+          <PropertyRef Name="ActorId" />
+        </Key>
+        <Property Name="ActorId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Firstname" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="Middlename" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="Lastname" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="Birthday" Type="Edm.DateTime" Precision="0" />
+        <Property Name="Image" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="false" />
+        <Property Name="Title" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="About" Type="Edm.String" MaxLength="3000" FixedLength="false" Unicode="false" />
+        <NavigationProperty Name="Movie" Relationship="martinbeModel.ActorMovie" ToRole="Movie" FromRole="Actor" />
+      </EntityType>
+      <EntityType Name="Movie">
+        <Key>
+          <PropertyRef Name="MovieId" />
+        </Key>
+        <Property Name="MovieId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="Year" Type="Edm.Int32" />
+        <Property Name="MovieDescription" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Category1Id" Type="Edm.Int32" />
+        <Property Name="Category2Id" Type="Edm.Int32" />
+        <Property Name="Country" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <Property Name="PosterImage" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="false" />
+        <NavigationProperty Name="Actor" Relationship="martinbeModel.ActorMovie" ToRole="Actor" FromRole="Movie" />
+      </EntityType>
+      <Association Name="ActorMovie">
+        <End Type="martinbeModel.Movie" Role="Movie" Multiplicity="*" />
+        <End Type="martinbeModel.Actor" Role="Actor" Multiplicity="*" />
+      </Association>
+    </Schema>
+    <Schema Namespace="ActorMovieTwelve" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityContainer Name="martinbeEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Actor" EntityType="martinbeModel.Actor" />
+        <EntitySet Name="Movie" EntityType="martinbeModel.Movie" />
+        <AssociationSet Name="ActorMovie" Association="martinbeModel.ActorMovie">
+          <End Role="Actor" EntitySet="Actor" />
+          <End Role="Movie" EntitySet="Movie" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
